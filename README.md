@@ -62,8 +62,5 @@ This is a strategic conceptual study of voice as infrastructure — not “just�
 ## Google Speak Mockup
 https://drive.google.com/file/d/1wonek1CnSid0LLzD3e9lYbLYB2jWZoT2/view?usp=drivesdk
 
----
-## Framework Sketch (low fidelity)
 
-See: `/docs/framework_sketch.txt` for the conceptual layer visualization.
 
