@@ -57,3 +57,4 @@ This model solves it by anchoring identity to the user account — not the SIM c
 - a conceptual UX mockup structure  
 
 This is a strategic conceptual study of voice as infrastructure — not “just” a voice app UI.
+https://drive.google.com/file/d/1wonek1CnSid0LLzD3e9lYbLYB2jWZoT2/view?usp=drivesdk
