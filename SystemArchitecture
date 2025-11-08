@@ -1,0 +1,61 @@
+# System Architecture — Google Voice as Infrastructure
+
+This architecture abstracts Google Voice into 4 programmable layers.
+
+---
+
+## Layer Model
+
+| Layer Name | Description | Input | Output |
+|---|---|---|---|
+| Identity Layer | User-owned phone number anchored to Google Account | Auth+User ID | Virtual phone identity |
+| Routing Layer | Rules & logic for how calls/SMS are handled | Voice/SMS event | Forward, filter, voicemail, auto-label |
+| Interface Layer | Inbox UI (web/mobile) showing unified feed | Routed events | Transcription, logs, interactions |
+| Output Layer | Delivery into external channels | Routed/Processed events | Device ring, Gmail, transcript email |
+
+---
+
+## System Components
+
+**1) Identity Anchor**
+- phone number stored as a digital object
+- not tied to hardware / SIM / carrier
+- maps to Google Account
+
+**2) Routing Engine**
+- event-based rules engine
+- inputs: caller ID, region, message type
+- outputs: ring device / send to voicemail / forward to inbox
+
+**3) Multi-Channel Inbox**
+- feed of SMS + call logs + voicemail transcripts
+- interactions: callback, reply SMS, label, archive
+
+**4) Analytics Layer**
+- insights: origin of calls, pickup device, channel frequency
+- usage: communication footprint understanding
+
+---
+
+## Data Flow
+
+1. event enters system (call / sms)
+2. identity verification maps event → user ID
+3. routing rules run
+4. action triggered (deliver / forward / voicemail)
+5. event stored + displayed in unified inbox
+6. analytics model updates behavioural insights
+
+---
+
+## Technical feasibility reasoning
+
+This model works because:
+
+- user identity is already cloud anchored (Google Account)
+- call/SMS events can be abstracted as data events
+- routing can be rule-based like serverless functions
+- UI layer is simply rendering the processed events
+- analytics only needs the event log + metadata
+
+Thus: Google Voice behaves more like **communication plumbing** than an app.
